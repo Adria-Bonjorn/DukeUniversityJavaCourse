@@ -1,0 +1,57 @@
+package StringsFirstAssignments;
+
+
+/**
+ * Duke Univeristy JavaProgramming Course - Week2 - Strings
+ *Exercise Part 4
+ * @author Adrià Bonjorn Cervera
+ * @version 28/09/2021
+ */
+
+import edu.duke.*;
+
+public class Part4
+{
+    // instance variables - replace the example below with your own
+    private int x;
+
+    /**
+     * Constructor for objects of class Part4
+     */
+    public Part4()
+    {
+        // initialise instance variables
+        x = 0;
+    }
+
+    
+
+    
+    public void test(){
+    
+        URLResource ur = new URLResource("https://www.dukelearntoprogram.com//course2/data/manylinks.html");
+        int start;
+        int end;
+        String URL = null;
+        String s = null;
+        System.out.println("Funciona");
+        for(String S: ur.lines()){
+            s = S.toLowerCase();
+            //System.out.println("Funciona?" + S);
+            if(s.indexOf("youtube.com") != -1){
+            
+                start = s.indexOf("\"");
+                end = s.indexOf("\"", start+1);
+                if(s.indexOf("youtube.com")>end){
+                    start = s.indexOf("\"",end + 1);
+                    end = s.indexOf("\"", start+1);
+                
+                }
+                URL = S.substring(start,end+1);
+                System.out.println(" - " + URL);
+            }
+        
+        }
+    
+    }
+}
