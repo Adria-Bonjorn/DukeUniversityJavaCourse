@@ -1,1 +1,71 @@
 
+/**
+ * Duke Univeristy JavaProgramming Course - Week2 - Strings
+ *Exercise Part 1
+ * @author Adrià Bonjorn Cervera
+ * @version 28/09/2021
+ */
+public class Part1
+{
+    // instance variables - replace the example below with your own
+    private int x;
+
+    /**
+     * Constructor for objects of class Part1
+     */
+    public Part1()
+    {
+        // initialise instance variables
+        x = 0;
+    }
+
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public String findSimpleGene(String dna)
+    {
+        String s=null;
+        int startIndex = dna.indexOf("ATG");
+        int stopIndex = dna.indexOf("TAA", startIndex+3);
+        if (startIndex != -1){
+        
+            s = dna.substring(startIndex,stopIndex+3);
+            
+            if (s.length() % 3 != 0){
+            s = null;
+            }
+        }
+        else {
+        s = null;
+        }
+        
+        return s;
+    }
+    
+    public void testSimpleGene(){
+    
+        String dna = "AAATGTGAGTATAA";
+        String gene = findSimpleGene(dna);
+        System.out.println("In the dna " + dna + " the gene is: " + gene);
+        
+        dna = "AAAGGTGAGTATAA";
+        gene = findSimpleGene(dna);
+        System.out.println("In the dna " + dna + " the gene is: " + gene);
+        
+        dna = "AAATGTAGTATAA";
+        gene = findSimpleGene(dna);
+        System.out.println("In the dna " + dna + " the gene is: " + gene);
+        
+        dna = "AAATGTGAGTATATA";
+        gene = findSimpleGene(dna);
+        System.out.println("In the dna " + dna + " the gene is: " + gene);
+        
+        dna = "AAATGGTGAAGTATATA";
+        gene = findSimpleGene(dna);
+        System.out.println("In the dna " + dna + " the gene is: " + gene);
+        
+    }    
+}
