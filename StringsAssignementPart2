@@ -1,0 +1,53 @@
+
+/**
+ * Duke Univeristy JavaProgramming Course - Week2 - Strings
+ *Exercise Part 2
+ * @author Adrià Bonjorn Cervera
+ * @version 28/09/2021
+ */
+public class Part2
+{
+    // instance variables - replace the example below with your own
+    private int x;
+
+    /**
+     * Constructor for objects of class Part2
+     */
+    public Part2()
+    {
+        // initialise instance variables
+        x = 0;
+    }
+
+    public String findSimpleGene(String dna, String startCodon, String stopCodon)
+    {
+        String s=null;
+        int startIndex = dna.indexOf(startCodon);
+        int stopIndex = dna.indexOf(stopCodon, startIndex+3);
+        if (startIndex != -1){
+        
+            s = dna.substring(startIndex,stopIndex+3);
+            
+            if (s.length() % 3 != 0){
+            s = null;
+            }
+        }
+        else {
+        String startCodon2 = startCodon.toLowerCase();
+        String stopCodon2 = stopCodon.toLowerCase();
+        String dna2 = dna.toLowerCase();
+        startIndex = dna2.indexOf(startCodon2);
+        stopIndex = dna2.indexOf(stopCodon2, startIndex+3);
+        if (startIndex != -1){
+        
+            s = dna2.substring(startIndex,stopIndex+3);
+            
+            if (s.length() % 3 != 0){
+            s = null;
+            }
+        }
+        }
+        
+        return s;
+    }
+    
