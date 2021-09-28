@@ -1,0 +1,71 @@
+
+/**
+ * Duke Univeristy JavaProgramming Course - Week2 - Strings
+ *Exercise Part 3
+ * @author Adrià Bonjorn Cervera
+ * @version 28/09/2021
+ */
+public class Part3
+{
+    // instance variables - replace the example below with your own
+    private int x;
+
+    /**
+     * Constructor for objects of class Part3
+     */
+    public Part3()
+    {
+        // initialise instance variables
+        x = 0;
+    }
+
+    
+    public boolean twoOccurrences (String stringa, String stringb)
+    {
+        boolean result = false;
+        
+        int firstIndex = stringa.indexOf(stringb);
+        if (firstIndex != -1){
+         int secondIndex = stringa.indexOf(stringb, firstIndex+stringb.length());
+         if (secondIndex != -1){
+            result = true;
+            }
+            else{
+            result = false;
+            }
+        }
+        else{
+            result = false;
+        }
+        
+        
+        
+        return result;
+    }
+    
+    public void testing ()
+    {
+        String stringa = "banana";
+        String stringb = "a";
+        boolean result = twoOccurrences(stringa,stringb);
+        System.out.println("stringa = "+stringa+" || stringb = "+stringb+" || two occurrences? ->"+result);
+        
+        stringa = "I have three dogs.";
+        stringb = "dog";
+        result = twoOccurrences(stringa,stringb);
+        System.out.println("stringa = "+stringa+" || stringb = "+stringb+" || two occurrences? ->"+result);
+        
+        stringa = "Potato, eggs, milk, sugar and pizza.";
+        stringb = "tat";
+        result = twoOccurrences(stringa,stringb);
+        System.out.println("stringa = "+stringa+" || stringb = "+stringb+" || two occurrences? ->"+result);
+        
+        stringa = "I'm hungry and thats why I'm talking about food.";
+        stringb = "y";
+        result = twoOccurrences(stringa,stringb);
+        System.out.println("stringa = "+stringa+" || stringb = "+stringb+" || two occurrences? ->"+result);
+        
+
+    
+    }
+}
